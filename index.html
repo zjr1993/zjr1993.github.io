@@ -1,0 +1,1356 @@
+<!doctype html>
+<html style='font-size:20px !important'>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext' rel='stylesheet' type='text/css' /><link href='https://fonts.loli.net/css?family=Lato:900,300&subset=latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+/*export as html file*/
+@include-when-export url(https://fonts.loli.net/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext);
+@include-when-export url(https://fonts.loli.net/css?family=Lato:900,300&subset=latin-ext);
+
+
+/* some predefined value here */
+:root {
+	--control-text-color: #777;
+	--select-text-bg-color: #ffafa3; /* 文本选中背景色（粉红） */
+    /*--primary-color: red;*/
+    --bg-color: white; /* 整体背景色（白色） */
+    --sidebarbg-color: white; /* 侧边栏背景色（白色） */
+    --focus-color: #ff5d52; /* 点击某些元素（如标题）显示的颜色（偏红） */
+    --codeblockbg-color: #eee; /* 代码块背景色（灰色） */
+    --codeblockfont-color: #555; /* 代码块默认字体颜色（黑色） */
+    --codeblockline-color: #e0f8f8; /* 代码块选中行颜色（青色） */
+    --titlebefore-color: #3e7f79; /* 各级标题点缀颜色（绿色） */
+    --codeblocknum-color: rgba(128, 128, 255, 0.8); /* 代码块行编号颜色（蓝色） */
+    --blockquoteicon-color: #5fa7e4; /* blockquote提示图标色（蓝色） */
+    --blockquotebg-color: #f4fcff; /* blockquote背景色（淡蓝） */
+    --ulol-color: #81accf; /* 有序无序列表前缀颜色（灰色） */
+    --olfore-color: #fff; /* 有序列表字体颜色（白色） */
+    --tableevenrow-color: #eee; /* 表格偶数行颜色（淡灰） */
+    --tablefocusrow-color: #e0f8f8; /* 表格鼠标悬停行颜色（淡蓝） */
+    --tableborder-color: #c5c5c5; /* 表格边框色（黑色） */
+    --tablethbg-color: #f4fcff; /* 表格表头背景色（淡蓝） */
+    --scrollbar-color: #9e9e9e; /* 滚动条颜色（灰色） */
+    --toc-color: #00a0a0; /* 目录颜色（绿色） */
+    --atext-color: black; /* 超链接文本颜色（黑色） */
+    --ahover-color: #ffffffe6; /* 超链接悬停文本颜色（白色） */
+    --abottom-color: #326fd7; /* 超链接下划线颜色（青色） */
+    --code-color: #df65d6; /* 行内代码前景色（红色） */
+    --codebg-color: #f8f5ec; /* 行内代码背景色（淡红） */
+    --footnote-color: #2fdeaf; /* 脚注上标前景色（红色） */
+    --footnotebg-color: #f8f8f8; /* 脚注上标背景色（淡灰） */
+    --highlight-color: rgb(195, 222, 215); /* 高亮文本前景色（红色） */
+    --highlightbg-color: rgb(238, 97, 241); /* 高亮文本背景色（黄色） */
+    --split-color: #00c4b6; /* 分割线颜色（绿色） */
+    --taskborder-color: red; /* 任务列表边框色（红色） */
+    --taskfocus-color: #00c4b6; /* 任务列表选中填充色（绿色） */
+    --spannote-color: #e91e64; /* 小标签背景色（红色） */
+    --emptext-color: #fe5f58; /* 几款强调型文本的颜色（红色） */
+    --hidetextcover-color: #a1a1a1; /* 隐藏文本遮罩颜色（灰色） */
+    --hidetext-color: #444; /* 隐藏文本颜色（黑色） */
+    --spanbtn-color: #44d7b6; /* 文本按钮颜色（绿色） */
+    --detailstxt-color: rgba(68,68,68,.7); /* 折叠框summary文字颜色（灰色） */
+    --detailsbg-color: #ebf9ed; /* 折叠框summary背景色（青绿色） */
+    --detailsborder-color: #00c4b6; /* 折叠框边框色（绿色） */
+    --body-color: #000000; /* 文本颜色（黑色） */
+    --para-color: #000000; /* 段落文本颜色（黑色） */
+    --commonstr-color: #232629; /* 常规字符串颜色（黑色） */
+    --commonstrbg-color: #e3e6e8; /* 常规字符串背景色（灰色） */
+    --timebodybg-color: #efeded; /* 时间轴主体部分背景色（灰色） */
+    --sidelist-selected-color: #eeeeee; /* 侧边栏条目选中背景色（灰色） */
+    --yamlbg-color: #f7f7f7; /* 头部YAML背景色（白色） */
+    --yaml-color: #585858; /* 头部YAML字体颜色（黑色） */
+    --hover-color: green;/*超链接悬停颜色*/
+    /* dy font */
+    --body-font: 'Source Sans Pro', '等距更纱黑体 SC', 'Helvetica Neue', Arial, sans-serif; /* 全局字体（"Poppins", -apple-system, "Helvetica Neue", Helvetica, "Noto Sans", "Nimbus Sans L", Arial, "Liberation Sans", "Noto Sans CJK SC", "PingFang SC", "Hiragino Sans GB", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;） */
+    --code-font: 'JetBrains Mono'; /* 代码块以及行内代码字体 */
+    /* bg image */
+    --bgimg-url: url(file:///C://Users//HP//AppData//Roaming//Typora/themes/bg-light.gif);
+
+	--imagshadow-color: #84A1A8;
+
+
+}
+
+/**
+ * font information
+ */
+
+/* some basic setting about line-height and font size*/
+
+h1,.h1,.f1 {
+	font-size: 2rem;
+	line-height: 2.5rem;
+}
+h2,.h2,.f2 {
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+h3,.h3,.f3 {
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+}
+p,.p,.f4,h4,h5,h6,dl,ol,ul,pre[cid],div[cid],#typora-source {
+	font-size: 1.125rem;
+	line-height: 1.5rem;
+}
+
+h4 {
+	font-size: 1.13rem;
+}
+
+
+/*
+ Pixyll
+ A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.
+ Best served with BASSCSS (http://jxnblk.github.io/basscss)
+ Crafted with <3 by John Otander (@4lpine) - ©2015 John Otander MIT License http://opensource.org/licenses/MIT
+
+*/
+
+body {
+	font-family: "Merriweather", Georgia, "Times New Roman";
+	line-height: 1.5rem;
+	font-weight: 400;
+}
+
+#write {
+	max-width: 914px;
+	color: #333;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1100px;
+	}
+}
+
+@media only screen and (min-width: 1700px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+
+/* image setting start */
+
+.md-image img {
+	width: auto;
+	max-width: 100%;
+}
+
+/*带阴影版本的图片*/
+/*
+alt="sd-x"
+*/
+.md-image img[alt|='sd'] {
+    box-shadow: var(--imagshadow-color) 0px 10px 15px;
+    background-size: 100% 100%;
+    cursor: default;
+    border-left: 0;
+    border-right: 0;
+}
+
+/*设置图片模糊效果，可以用来隐藏答案*/
+/*
+alt="br-x"
+*/
+.md-image img[alt|='br'] {
+    filter:blur(4px);
+    -webkit-filter:blur(4px);
+    -moz-filter:blur(4px);
+    -ms-filter:blur(4px);
+    -o-filter:blur(4px);
+    transition: all 0.2s linear;
+}
+.md-image img[alt|='br']:hover {
+    filter:none;
+    -webkit-filter:none;
+    -moz-filter:none;
+    -ms-filter:none;
+    -o-filter:none;
+}
+
+/* image setting end */
+
+
+
+
+body {
+	font-size: 1.5rem;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+
+
+/* table setting begin*/
+
+.ty-table-edit {
+	background: ghostwhite;
+}
+
+/*table {
+	width: 100%;
+	font-size: 1.125rem;
+}*/
+
+table {
+    padding: 0;
+    word-break: initial;
+    font-size:12pt;
+}
+
+table tr:nth-child(2n) {
+    background-color: var(--tableevenrow-color);
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid var(--tableborder-color);
+    background-color: var(--tablethbg-color);
+    border-bottom: 0;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid var(--tableborder-color);
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+table tr:hover {
+  background-color: var(--tablefocusrow-color);
+}
+
+/* rgb(7, 50, 224)  rgb(20, 109, 233) */
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td,
+table > tfoot > tr > th,
+table > tfoot > tr > td {
+	padding: 12px;
+	line-height: 1.2;
+	vertical-align: top;
+	/* border-right: 1px solid black;
+	border-top: 2px solid black;*/
+}
+table > thead > tr > th {
+	vertical-align: bottom;
+	border-bottom: 2px solid black;
+}
+/* table setting end */
+
+
+
+
+p {
+	font-weight: 300;
+	line-height: 1.5;
+}
+
+
+
+
+abbr {
+	cursor: help;
+}
+
+#write sup abbr {
+	color: #0c33e1 !important;
+	font-size: smaller;
+	background-color: gainsboro;
+	font-style: oblique;
+    padding-right:4px;
+}
+
+/* pre,
+code {
+	font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+code,
+.md-fences  {
+	color: #7a7a7a;
+}
+
+.md-fences {
+	padding: 1.125em;
+	margin-bottom: 0.88em;
+	font-size: 1rem;
+	border: 1px solid #7a7a7a;
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+}
+
+*/
+blockquote {
+    /* border: 1px solid #d1f3ff; */
+    border-left: 5px solid var(--blockquoteicon-color);
+    padding: 10px 15px;
+    color: #3f3f3f;
+    background-color: var(--blockquotebg-color); /* white */
+    border-radius: 3px;
+    position:relative;
+}
+
+blockquote {
+	padding: 0.5em;
+	font-style:normal;
+	border-left: 5px solid #7a7a7a;
+	color: #555;
+	background-color: #f2e9d3;
+}
+
+blockquote em {
+	color: #000;
+}
+blockquote footer {
+	font-size: .85rem;
+	font-style: normal;
+	background-color: #fff;
+	color: #7a7a7a;
+	border-color: transparent;
+}
+
+blockquote>* {
+    margin-left: 2rem !important;
+}
+blockquote::before {
+    content: '=>';
+    font-family: "JetBrainsMono Nerd Font";
+    color: darkolivegreen;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: large;
+    font-weight: 600;
+}
+
+#write blockquote .CodeMirror pre {
+    font-family: "GoMono Nerd Font";
+    font-size: 1em;
+    padding-left: 12px;
+}
+
+blockquote .md-fences {
+	background-color: rgb(238, 238, 221);
+}
+
+/** code block begin **/
+
+
+#write .CodeMirror pre {
+    font-family: "GoMono Nerd Font";
+    font-size: 1.2em;
+    padding-left: 12px;
+}
+
+.md-fences {
+    /*background-image: url("file:///C://Users//HP//AppData//Roaming//Typora/themes/logo.png");*/
+    border-radius: 3px;
+	background-color: white;
+    /* color: var(--codeblockfont-color); */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    line-height: 1.6em;
+    border: 1px solid #d0d5d7;
+}
+
+/* 代码块光标线条宽度、颜色 */
+#write .CodeMirror-cursors .CodeMirror-cursor {
+    border-left: 2px solid var(--focus-color);
+}
+
+/* 选中行高亮 */
+.md-fences:not(.md-focus) .CodeMirror-code>*:hover {
+    background-color: var(--codeblockline-color);
+}
+.md-fences.md-focus .CodeMirror-code>div.CodeMirror-activeline {
+    background-color: var(--codeblockline-color);
+}
+
+#write ol>li>*[class~="md-fences"], #write ul>li>*[class~="md-fences"] {
+    padding-left: 0 !important;
+}
+
+/* 蓝色行内数学公式 */
+/*
+[md-inline='inline_math'] {
+    color: blue;
+    font-size: 100%;
+}
+*/
+
+/* 修复行间公式在手机端屏幕宽度较小时公式极端缩小的问题，但是打印为pdf时仍要设为100%，否则有滚动条 */
+@media only screen and (max-width: 800px) {
+    .MathJax_SVG_Display svg{
+        max-width: inherit !important;
+    }
+}
+
+/** 行内代码 **/
+#write code {
+    padding: 2px 4px;
+    border-radius: 2px;
+	font-style: italic;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 1.1rem;
+    color: var(--code-color);
+    background-color: var(--codebg-color);
+	background-clip: content-box;
+}
+
+/** code block end **/
+
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+	font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: bold;
+	line-height: 1.2;
+	margin: 1em 0 0.5em;
+}
+@media screen and (min-width: 48em) {
+	.h1,
+	h1 {
+		font-size: 3.250rem;
+	}
+	.h2,
+	h2 {
+		font-size: 2.298rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.625rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.3rem;
+	}
+	#write>h4.md-focus:before,
+	#write>h5.md-focus:before,
+	#write>h6.md-focus:before{
+		top: 1px;
+	}
+	.p,
+	p,
+	li {
+		font-size: 1.25rem;
+		line-height: 1.8;
+	}
+	table {
+		font-size: 1.25rem;
+	}
+}
+@media (max-width: 48em) {
+	blockquote {
+		margin-left: 1rem;
+		margin-right: 0;
+		padding: 0.5em;
+	}
+	.h1,
+	h1 {
+		font-size: 2.827rem;
+	}
+	.h2,
+	h2 {
+		font-size: 1.999rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.413rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.3rem;
+	}
+}
+@media screen and (min-width: 64em) {
+	.h1,
+	h1 {
+		font-size: 4.498rem;
+	}
+	.h2,
+	h2 {
+		font-size: 2.29rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.9rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.591rem;
+	}
+	#write>h4.md-focus:before{
+		top:4px;
+	}
+}
+
+
+/* set head style  */
+
+
+h1 {
+    text-align: center;
+    padding-bottom: 0.3em;
+    /* font-size: 2.2em; */
+    /* line-height: 1.2; */
+    margin: 1.5em auto 1.2em;
+    display:block;
+}
+
+h1 span{
+    display: inline-block;
+    position: relative;
+}
+
+
+
+h1 span:after {
+    background: var(--titlebefore-color);
+    bottom: -5px;
+    content: '';
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transform: scaleX(0);
+    width: 100%;
+    transition-delay: 0s;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+}
+h1:hover span:after {
+    transform: scaleX(1);
+}
+
+
+
+h2 {
+    /*margin: 1.3em auto 1.2em;*/
+    /* font-size: 1.8em; */
+    border-bottom: 2px solid var(--titlebefore-color);
+}
+h2:before {
+    content: 'A' !important; /* 风车图标 */
+    color: var(--titlebefore-color);
+    /* font-family: "iconfont"; */
+}
+
+/* h2标题前缀旋转动画 */
+@-moz-keyframes avatar_turn_around{from{-webkit-transform:rotate(0);-moz-transform:rotate(0);-o-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg)}}@-webkit-keyframes avatar_turn_around{from{-webkit-transform:rotate(0);-moz-transform:rotate(0);-o-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg)}}@-o-keyframes avatar_turn_around{from{-webkit-transform:rotate(0);-moz-transform:rotate(0);-o-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes avatar_turn_around{from{-webkit-transform:rotate(0);-moz-transform:rotate(0);-o-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg)}}
+h2:before {
+    display: inline-block;
+    -webkit-animation: avatar_turn_around 2s linear infinite;
+    -moz-animation: avatar_turn_around 2s linear infinite;
+    -o-animation: avatar_turn_around 2s linear infinite;
+    -ms-animation: avatar_turn_around 2s linear infinite;
+    animation: avatar_turn_around 2s linear infinite;
+    font-size: 34px;  /* TODO */
+    margin-left: -29px;
+}
+
+/* h2标题内容稍稍偏右一点 */
+h2 * {
+    margin-left: .18rem;
+}
+
+h2:hover:before {
+    color: var(--focus-color) !important;
+}
+
+
+h2:hover{
+    border-bottom-color: var(--focus-color);
+}
+
+h3 {
+    /* font-size: 1.4em; */
+    line-height: 1.43;
+    /*margin: 1.2em auto 1.2em;*/
+    padding-left: 9px;
+    border-left: 5px solid var(--titlebefore-color);
+}
+
+h4 {
+    margin-top: 1.2em;
+    /* font-size: 1.2em; */
+    padding-left: 6px;
+    padding-right: 6px;
+    display: inline-block;
+    border: 1px solid var(--titlebefore-color);
+    border-top: 4px solid var(--titlebefore-color);
+}
+
+/* 三级四级标题点击后的前缀提示图标 */
+h3:hover::before,h4:hover::before {
+    width: auto;
+    height: auto;
+    background-color: var(--focus-color);
+    color: #ffffff;
+}
+
+
+h3:hover,h4:hover {
+    border-color: var(--focus-color);
+}
+
+#write h5::before,
+#write h6::before {
+    position: absolute;
+    right: calc(100% + .75em);
+    top: 0;
+    color: var(--titlebefore-color); /* #5b5b5b */
+    font-size: 0.6rem;
+    font-weight: bold;
+    font-variant: 'small-caps';
+    white-space: nowrap;
+    /* 文本强制不换行 */
+    border: 0;
+}
+
+#write h5:hover::before, #write h6:hover::before{
+    color: var(--focus-color);
+}
+
+
+
+#write h5::before {
+    content: 'H5';
+    top: 0.2rem;
+	color: #0c33e1;
+}
+
+#write h6::before {
+    content: 'H6';
+    top: 0.2rem;
+	color:#326fd7;
+}
+
+
+
+/* set head style  */
+
+#write a.md-toc-inner {
+	color:#326fd7;
+	border-bottom:none;
+}
+
+#write em span {
+	color: rgba(84, 167, 148, 0.686);
+}
+
+#write a.md-toc-inner:hover {
+	border-bottom:none;
+	color:#e03ad2 !important;
+	background-color: white;
+	transform:rotateX(30deg);
+	transition-delay: 0s;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+	text-decoration: none;
+}
+
+#write p.md-toc-content>span:first-child>a{
+	font-size: 2rem;
+}
+
+
+a {
+	color: #463F5C;
+	text-decoration: underline;
+}
+
+
+#write a {
+    border-bottom:2px solid rgb(5, 189, 240);
+    padding: 0 4px;
+    /*padding-top: 2px;*/
+    transition: all 0.8s ease-in-out;
+    color: #463F5C;
+    text-decoration: none;
+}
+
+#write a:hover {
+    border-radius:4px;
+    border-bottom:2px solid transparent;
+    background-color:rgb(54, 128, 239);
+    color: navajowhite !important;
+    cursor:pointer;
+}
+
+#write sup a[alt="ref"] {
+	border-bottom: none;
+	font-size:medium;
+	color: rgb(115, 18, 211);
+}
+
+#write sup a[alt="ref"]:before{
+    content: "🔗";
+	font-size: smaller;
+}
+
+
+#write {
+	padding-top: 2rem;
+}
+
+#write span[alt="ref"] a{
+    transition: all 0.2s;
+	border-bottom:2px solid rgb(35, 125, 38);
+}
+
+#write span[alt="ref"] a:hover {
+	border-bottom: none;
+    color: green !important;
+    background-color:antiquewhite;
+}
+
+#write span[alt="ref"] a:hover::before{
+	content: "↪";
+	color: green !important;
+}
+
+
+#write a[alt="null"]{
+    border-bottom: none;
+}
+
+#write a[alt="null"]:hover{
+    background-color: inherit;
+    border-radius: 0px;
+    color: var(--atext-color) !important;
+}
+
+#write pre.md-meta-block {
+	min-height: 35px;
+	padding: 0.5em 1em;
+	white-space: pre;
+	border: 0px;
+
+	border-left: 30px #f8f8f8 solid;
+	border-right: 30px #f8f8f8 solid;
+	width: 100vw;
+	max-width: calc(100% + 60px);
+
+	margin-left: -30px;
+	margin-bottom: 2em;
+	margin-top: -2010px;
+	padding-top: 2000px;
+	padding-bottom: 10px;
+	line-height: 1.5em;
+	color: #7a7a7a;
+	background-color: #fafafa;
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: 300;
+	clear: both;
+	padding-left: 0;
+	font-size:1.125rem;
+}
+
+
+/* .md-image>.md-meta {
+	color: #463F5C
+}*/ 
+
+
+#write span[md-inline="highlight"] mark {
+    background-color: yellow;
+    border-radius: 2px;
+    padding: 2px 4px;
+    margin: 0 2px;
+    color: darkblue;
+    font-weight: 200;
+}
+
+
+
+#write i {
+	color:rgb(54, 128, 239);
+	font-family: "JetBrainsMono Nerd Font";
+}
+
+details {
+    display: block;
+    padding: 16px;
+    margin: 1em 0;
+    border-radius: 4px;
+    background: var(--bg-color);
+    font-size: 14px;
+    -webkit-transition: all .28s ease;
+    -moz-transition: all .28s ease;
+    -o-transition: all .28s ease;
+    -ms-transition: all .28s ease;
+    transition: all .28s ease;
+    -moz-transition: all .28s ease;
+    -webkit-transition: all .28s ease;
+    -o-transition: all .28s ease;
+    border: 1px solid var(--bg-color);
+}
+summary {
+    display: list-item;
+}
+details summary {
+    cursor: pointer;
+    padding: 16px;
+    margin: -16px;
+    border-radius: 4px;
+    color: var(--detailstxt-color);
+    font-size: 1.35rem!important;
+    font-weight: 700;
+    position: relative;
+    line-height: normal;
+}
+details>summary {
+    background: var(--detailsbg-color);
+}
+details[open] {
+    border-color: var(--detailsborder-color);
+}
+details[open]>summary {
+    color: #444;
+    margin-bottom: 0;
+}
+details[open]>summary {
+    border-bottom: 1px solid var(--detailsborder-color);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* 折叠框、视频、音频标签点击时候会出现黑色边框，极不美观，去除 */
+summary:focus {
+    outline: none !important;
+}
+video:focus{
+    outline: none !important;
+}
+audio:focus{
+    outline: none !important;
+}
+
+
+details pre {
+    color:#444;
+    margin:15px auto;
+    padding:20px 15px;
+    padding-bottom: 0px;
+    background:#fff url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAmCAIAAACphTeFAAAAJElEQVRIx2N4RS5gGNU5qnNU56hOZJ2fyQWjOkd1juoc1YkMAKDL4lkok3p7AAAAAElFTkSuQmCC') repeat;
+    white-space:pre-wrap;
+    word-wrap:break-word;
+    letter-spacing:1.5px;
+    font:14px/25px 'Comic Sans MS','courier new';
+    line-height:22px;
+    background-size:100% 44px;
+}
+
+/* directory setting */
+
+
+
+
+/* directory setting */
+
+
+/* 一些下划线文本 */
+
+span[alt='emp'] {
+	border: thick double #32a1ce;
+	font-style: bold;
+}
+
+
+span[alt='underline'] {
+    border-bottom: 2px solid var(--emptext-color);
+}
+
+
+span[alt='wv'] {
+    text-decoration-style: wavy;
+    text-decoration-line: underline;
+    text-decoration-color: var(--emptext-color);
+}
+
+span[alt='dd'] {
+    text-decoration-style: dashed;
+    text-decoration-line: underline;
+    text-decoration-color: var(--emptext-color);
+}
+
+font {
+    display: inline;
+    padding: .1em 0.25em;
+    font-size: 90%;
+    font-weight: 400;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: .1rem;
+    border-radius: 6px;
+    background-color: var(--spannote-color);
+}
+font[title="red"] {
+    background-color:#e91e64;
+}
+font[title="blue"] {
+    background-color:#02aaf4;
+}
+font[title="yellow"] {
+    background-color:#ffc50a;
+}
+font[title="green"] {
+    background-color:#8bc34a;
+}
+font[title="gray"] {
+    background-color:#4c4c4c;
+}
+
+#write font strong {
+	font-style: 450;
+	color: white;
+}
+
+
+hr {
+	width:120%;
+	margin:0 auto;
+	border: 0;
+	height: 2px;
+	background-image: linear-gradient(to right, rgb(14, 18, 235), rgba(152, 213, 216, 0.383), rgb(200, 51, 241));
+}
+
+
+
+@-webkit-keyframes rainbowan {
+    to {
+        background-position: -2000vw;
+    }
+}
+@keyframes rainbowan {
+    to {
+        background-position: -2000vw;
+    }
+}
+span[alt="rainbow"], span[alt="rainbow"] * {
+    padding-top: 3px;
+    background-image: linear-gradient( to left, orangered, orange, gold, lightgreen, cyan, dodgerblue, mediumpurple, hotpink, orangered);
+    background-size: 110vw;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-animation: rainbowan 60s linear infinite;
+    animation: rainbowan 60s linear infinite;
+}
+
+
+
+.md-tag {
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+}
+.code-tooltip {
+	background: white;
+}
+.code-tooltip-content {
+	font-size: 1.1rem;
+}
+
+.task-list{
+	padding-left: 0;
+}
+
+.md-task-list-item {
+	padding-left:34px;
+}
+
+.md-task-list-item > input{
+	width: 1.25rem;
+	height: 1.25rem;
+	display: block;
+	-webkit-appearance: initial;
+	top: -0.2rem;
+	margin-left: -1.6em;
+	margin-top: calc(1rem - 7px);
+	border: none;
+}
+
+.md-task-list-item > input:focus{
+	outline: none;
+	box-shadow: none;
+}
+
+.md-task-list-item > input:before{
+	border: 1px solid #555;
+	border-radius: 1.5rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	background: #fff;
+	content: ' ';
+	transition: background-color 200ms ease-in-out;
+	display: block;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	background: #333;
+	border-width: 2px;
+	display:inline-block;
+	transition: background-color 200ms ease-in-out;
+}
+
+.md-task-list-item > input:checked:after,
+.md-task-list-item > input[checked]:after {
+	opacity: 1;
+}
+
+.md-task-list-item > input:after {
+	opacity: 1;
+	-webkit-transition: opacity 0.05s ease-in-out;
+	-moz-transition: opacity 0.05s ease-in-out;
+	transition: opacity 0.05s ease-in-out;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	position: absolute;
+	top: 0.4375rem;
+	left: 0.28125rem;
+	width: 0.9375rem;
+	height: 0.5rem;
+	border: 3px solid #fff;
+	border-top: 0;
+	border-right: 0;
+	content: ' ';
+	opacity: 0;
+}
+
+.md-tag {
+	color:inherit;
+}
+
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
+}
+
+#typora-sidebar {
+	font-size:1rem !important;
+}
+
+.outline-content li, .outline-content ul {
+	font-size:1rem !important;
+}
+
+.outline-title {
+	line-height: inherit;
+	margin-top: 10px;
+}
+
+.outline-expander {
+	width: 18px;
+}
+
+.outline-expander:before {
+ 	content: "+";
+	font-family: inherit;
+	color: rgb(108, 108, 108); 
+  font-size: 1.5rem;
+ 	top: -0.1rem;
+}
+
+.outline-expander:hover:before {
+	content: "+";
+}
+
+.outline-item-open>.outline-item>.outline-expander:before{
+	content: "-";
+}
+
+/** source code mode */
+#typora-source {
+	font-family: Courier, monospace;
+    color: #6A6A6A;
+}
+
+.os-windows #typora-source {
+	font-family: inherit;
+}
+
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property,
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+	color: #428bca;
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+	color: #777777;
+}
+
+.md-diagram-panel {
+	margin-top: 24px;
+	margin-left: -1.2em;
+}
+
+.md-mathjax-midline {
+	background: #fafafa;
+}
+
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+    bottom: -3.4em;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+}
+
+/*需要导出的话，要修改一下*/
+#write div[class="md-hr md-end-block"] + p>span {
+	color: burlywood;
+	font-style: italic;
+}
+
+/* 需要导出的话，需要修改一下 */
+#write .footnotes {
+	font-size:1.1rem;
+	color:palevioletred;
+}
+
+/*追加粗体颜色*/
+#write strong {
+	color:rgb(176, 88, 190);
+}
+
+
+span[alt='i'] {
+    text-decoration-style: double;
+    text-decoration-line: line-through;
+    text-decoration-color: rgba(196, 233, 108, 0.8);
+}
+
+
+</style><title>index</title>
+</head>
+<body class='typora-export os-windows monocolor-emoji'><div class='typora-export-content'>
+<div id='write'  class=''><h2 id='杭甬复线s4合同段迎检亮点展示'><span>杭甬复线S4合同段迎检亮点展示</span></h2><p>&nbsp;</p><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n0"><a class="md-toc-inner" href="#杭甬复线s4合同段迎检亮点展示">杭甬复线S4合同段迎检亮点展示</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n2"><a class="md-toc-inner" href="#1党建工作">1.党建工作</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n63"><a class="md-toc-inner" href="#2梁场施工">2.梁场施工</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n114"><a class="md-toc-inner" href="#3安全活动">3.安全活动</a></span></p></div><p>&nbsp;</p><h3 id='1党建工作'><span>1.党建工作</span></h3><p><span>💒</span><font title="yellow"><span>设立党员创新工作室</span></font></p><p><span alt="underline"><span>工作室外立面</span></span></p><p><span class='md-image'><img src="d\创新工作室外面.jpg" style="zoom:50%;" alt="sd" align="left"/></span></p><p>&nbsp;</p><p><span alt="underline"><span>工作室内部</span></span></p><p><span class='md-image'><img src="d\创新工作室内部2.jpg" style="zoom:50%;" alt="sd" align="left"/></span></p><p>&nbsp;</p><p><span>🏄‍♀️</span><font><span>创建海燕青年突击队</span></font></p><blockquote><p><span>为了提高项目部员工适应新形势变化的能力，发挥员工特别能吃苦、特别能战斗、特别能奉献、特别能合作的战斗精神，紧密结合项目部总体工作重心和难点工作，承担各项“急、难、险、重”的工作任务，项目组建</span><strong><span>海燕青年突击队</span></strong><span>。</span></p></blockquote><p><span alt="wv"><span>成员合影</span></span></p><p><span class='md-image'><img src="d\海燕突击队1.jpg" style="zoom:20%;" alt="sd" align="left"/></span></p><p><span class='md-image'><img src="d\海燕突击队2.jpg" style="zoom:26%;" alt="sd" align="left"/></span></p><p>&nbsp;</p><p><span>👨‍✈️</span><font title="gray"><span>设立“三进杭甬，一路倡廉”廉洁文化教育基地</span></font></p><blockquote><p><span>廉洁文化教育基地努力探索PPP项目监管特色下反腐倡廉新路子，实现</span><em><span>党员干部清廉、项目建设清优、作风纪律清朗、文化氛围清正</span></em><span> 的工作目标，为建设杭甬复线项目精品工程提供坚强的政治和纪律保障。</span></p></blockquote><p><span alt="wv"><span>展览室照片</span></span></p><p><span class='md-image'><img src="d\反腐倡廉.jpg" style="zoom:58%;" alt="sd" align="left"/></span></p><p><span class='md-image'><img src="d\反腐倡廉2.jpg" style="zoom:80%;" alt="sd" align="left"/></span></p><p>&nbsp;</p><h3 id='2梁场施工'><span>2.梁场施工</span></h3><p><span>👷‍♂️</span><font title="blue"><span>预应力整束穿孔</span></font></p><blockquote><p><span>预应力体系是整孔预制箱梁受力安全的重要组成部分，其施工质量直接关系到桥梁结构安全。为保证预应力张拉力值符合设计要求，钢束需整体穿束并整体穿锚。但在整体穿锚的过程中，要求同时将21根钢绞线穿过锚板存在较大的难度，耗时长。项目部开发了一种用于钢束整体穿锚的辅助工具—钢绞线穿锚梳理器，可在穿锚前先将待穿钢束进行初步梳理，让每根钢束排列有序，减小了众多钢束同时穿锚过程中的空间位置不定性，提高施工工效。</span></p></blockquote><p><strong><span>钢绞线穿束导向器及传送滑轮</span></strong></p><p><span class='md-image'><img src="l\钢绞线穿束导向器及传送滑轮2.jpg" style="zoom:80%;" alt="sd" align="left" /></span></p><p>&nbsp;</p><p><span class='md-image'><img src="l\钢绞线穿束导向器及传送滑轮1.jpg" style="zoom:80%;" alt="sd" align="left"/></span></p><p>&nbsp;</p><p><strong><span>钢绞线梳齿板</span></strong></p><p><span class='md-image'><img src="l\钢绞线梳齿板.jpg" style="zoom:50%;" alt="sd" align="left"/></span></p><p><span>🚆</span><font><span>整体式胎架</span></font></p><blockquote><p><span>定位胎架预留U型槽口，能保证钢筋数量、定位精准；设置波纹管定位卡片，保证波纹管定位准确（现场技术人员应准确区分32m、37m、40m梁板的管道信息）</span></p></blockquote><p><span class='md-image'><img src="l\梁板钢筋绑扎胎架.jpg" style="zoom:80%;" alt="sd" align="left"/></span></p><p>&nbsp;</p><h3 id='3安全活动'><span>3.安全活动</span></h3><p><span>🚋</span><font title="green"><span>防撞护栏施工安全台车</span></font></p><blockquote><p><span>以往桥面防撞护栏钢筋绑扎焊接和混凝土浇筑施工时，通常采用钢筋焊接的自制简易挂篮，缺失上下安全通道及防护护栏，导致经常发生临边坠落伤害事故。为了保障护栏施工人员的安全，项目部采购了标准护栏台车，该台车具有升降系统、半自动行走转向系统、配重系统、轮部止挡装置等。台车操作简单，可在桥上自由移动，操作平台底部采用刚性材料满铺焊接，不留孔洞，周边设置挡脚板，按照规范要求设置临边护栏，护 栏上焊接一根横向钢管用 以系挂安全带，作业平台与台车之间采用1000KG手拉葫芦进行连接，可满足2-4人同 时施工的要求，平台可进行上下移动，安全又高效。上下施工平台设置安全通道，垂直爬梯设置在平台内侧，确保人员上下通道的安全。</span></p></blockquote><p><img src="s\安全台车1.jpg" referrerpolicy="no-referrer"></p><p><img src="s\安全台车2.jpg" referrerpolicy="no-referrer"></p><p>&nbsp;</p><p><span>🚧</span><font><span>中央分隔带安全通道</span></font></p><blockquote><p><span>桥面施工作业左右幅人员进行通行时，常使用简易木质踏板作为人行通道，容易引发高处坠落事故，为了确保施工作业人员安全通行，项目对桥面左右幅安全通道进行改进，该安全通道采用拼装式方法进行组合，容易拆卸搬运。同时底部设活动式可锁闭滑轮，通道在使用可对滑轮进行固定，在搬运时可使用滑轮进行滑动搬运。同时中间通道高度可调节，便于使用，极大减少通道安拆的程序，提高现场施工作业效率。两侧护栏高度不得低于1.2m， 通道按要求必须进行两级验收，并悬挂相关安全标识牌。</span></p></blockquote><p><span class='md-image'><img src="s\中央分隔带安全通道1.jpg" style="zoom:120%;" alt="sd" align="left"/></span></p><p><span class='md-image'><img src="s\中央分隔带安全通道2.jpg" style="zoom:120%;" alt="sd" align="left"/></span></p><p>&nbsp;</p><p><span>📦</span><font title="yellow"><span>钢筋收纳箱</span></font></p><p><span class='md-image'><img src="s\钢筋收纳箱2.jpg" style="zoom:120%;" alt="sd" align="left"/></span></p><blockquote><p><span>桥面系施工时，班组常采用自制简易钢筋吊篮，这种吊篮使用几根螺纹钢进行简单弯曲绑扎，起吊时既不方便操作，钢筋又极易撒落砸伤人员，无法满足桥面系作业安全需要和标准化施工要求。</span>
+<span> 为解决这一问题，项目部自制了一款钢筋收纳箱。收纳箱采用轻质的方钢、扁铁、铁皮等材料制成，尺寸按照钢筋大小量身定做用以满足各班组作业要求。作业时，工人只需打开箱门便可拿取钢筋，能够避免钢筋划伤，降低劳动强度。收纳箱便于吊运，存取方便，极大的提高了钢筋工作业安全，提升了现场安全文明标准化。</span></p></blockquote><p>&nbsp;</p><p><span>🚨</span><font title="blue"><span>电缆线防护槽</span></font></p><p><span class='md-image'><img src="s\电缆线防护槽.jpg" style="zoom:150%;" alt="sd" align="left"/></span></p><blockquote><p><span>在日常施工中常采取穿管、挖槽等手段对过路的电线进行防护，但桥面护栏施工时却难以实施，为解决这一问题，项目部采购了减速带式防护槽。该防护槽可同时穿过4根50mm电缆线，完全可以满足现场复杂的用电需求，同时具有提示过往车辆减速慢行的作用。</span></p></blockquote><p>&nbsp;</p></div></div>
+</body>
+</html>
