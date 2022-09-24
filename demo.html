@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>竹皆荣答辩PPT</title>
+		<meta name="description" content="a ppt framework">
+		<meta name="author" content="zjr">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- revealJS stylesheet -->
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/solarized.css" id="theme">
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+		<!-- user defined stylesheet  -->
+		<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu'>
+		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
+		<link rel='stylesheet' href='./style.css'>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+				<!-- 首页标题 -->
+				<section>
+					<a href="https://www.zjjtgc.com/index.html" target="_blank">
+						<img src="image/bridge_logo.svg" alt="reveal.js logo" style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+					<h3>桥梁工程中的数据自动化处理</h3><h3>和三维信息展示</h3>
+					<p>
+						<small>Created by <a href="https://space.bilibili.com/14574654" style="color: #b641b6" target="_blank">竹皆荣</a> and <a href="https://gitee.com/ligaliga_usr" target="_blank">🔗项目地址</a></small><br>
+						<small style="color: #12bad8;font-weight: 600;">师傅：高沛沛</small>
+					</p>
+				</section>
+
+
+				<section data-background-iframe="./resume/indexs.html" data-background-interactive>
+					<div style="position: absolute; width: 35%; right: -250px; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(221, 220, 142, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+						<h2>本PPT由revealjs制作</h2>
+						<a href="https://revealjs.com/" target="_blank"><img src="./image/revealjs.jpg"></a>
+					</div>
+				</section>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section style="text-align: left;">
+						<h4>📝日常工作内容（数据汇总处理）</h4>
+						<hr style="transition:width 0.5s linear">
+						<p>
+							<i class="fa fa-check-square-o" style="font-size:36px;color:#90A955;"></i>汇总工程全线的工程进度情况
+						</p>
+                		<p>
+							<i class="fa fa-check-square-o" style="font-size:36px;color:#90A955;"></i>在台账中填写当日完成情况
+						</p>
+                		<p><i class="fa fa-check-square-o" style="font-size:36px;color:#90A955;"></i>填报当日形象量汇总表<a href="https://dataxujing.github.io/Fiery-and-RweiXin/"
+                        target="_blank"></a></p>
+						<hr>
+						<a href="#/1/1" class="navigate-down">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h5>Step1-----完成日报表填写</h5>
+						<div class="r-stack">
+							<div class="photoS"><img class="fragment fade-out" data-fragment-index="0" src="./image/xiliang.jpg" style="margin-top: -22px;zoom: 0.5;" alt="up"></div>
+							<img class="fragment current-visible" data-fragment-index="0" src="./image/xliang.jpg" style="margin-top: -42px;zoom: 0.5;" alt="up">
+						</div>
+					</section>
+					<section>
+						<h5>Step2-----在台账中记录完成日期</h5>
+						<div class="photoS">
+							<img src="./image/valueTable.jpg" style="margin-top: -22px;zoom: 0.5;" alt="up">
+						</div>
+					</section>
+					<section>
+						<h5>Step3-----填报形象量统计表</h5>
+						<div class="photoS" style="box-shadow: 1px 1px 1px rgb(175, 142, 142);">
+							<img src="./image/qu.jpg" style="margin-top: -22px;zoom: 0.7;">
+						</div>
+					</section>
+				</section>
+
+				<section>
+				<section>
+					<h3>存在的问题</h3>
+					<p>
+						因为杭甬复线工程量巨大，因此每天需要汇总的数据量是庞大的，特别是填入台账这一步，由于台账有上万行，通过筛选条目填入日期的工作方式耗时耗力😂。
+					</p>
+					<p style="color:#b641b6">
+						并且实际工作中经常需要统计一个星期、一个月等一段时间内的形象量和产值完成情况，原先的表格无法按时间跨度生成统计表，而人手工去统计经常出现差错。
+					</p>
+				</section>
+				<section>
+					<h3>😊解决方案</h3>
+					<p>
+						为此我开发了一个<span style="color:#d85a11;font-style: italic;">WPS表格模块</span>，它内置于WPS软件中，并集成了<span style="color:#23b310;font-style: bold;">自动汇总</span>，<span style="color:#df2b9a;font-style: bold;">填表</span>，<span style="color:#2412c9;font-style: bold;">计算产值</span>等等功能。
+					</p>
+					<a href="https://slides.com" target="_blank">项目地址🔗[]</a>
+				</section>
+				<section>
+					<h3>WPS表格模块🚀</h3>
+					<img src="./image/addins.jpg" style="margin-top: -0px;zoom: 1.1;">
+					<p>
+						<ul>
+							<li>其中第一个工具图标<span style="color:#2412c9;font-style: bold;">日报填写</span>可以自动完成每日形象量的汇总工作，并更新统计表。</li>
+							<li>第二个工具图标<span style="color:#7f21cc;font-style: bold;">台账助手</span>可以通过日报表中的条目自动完成筛选和日期记录工作，大大节省时间。</li>
+							<li>而最右边的<span style="color:#1ece76;font-style: bold;">计算产值</span>可以基于汇总情况自动计算各项对应的产值。</li>
+						</ul>
+					</p>
+				</section>
+				<section data-background-image="./gg1.gif" >
+					<h2>此处演示高级功能用法</h2>
+				</section>
+				</section>
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h2>另外一些例子</h2>
+					<p>比如对台账数据做剪枝压缩（为了导入集团的新数据系统，这一步是必须的。但由于台账数据量很大，手动修改几乎无法完成。
+						此时可以用<span style="color:#d85a11;font-style: italic;">JavaScript写自动化脚本</span>来完成工作。
+					</p>
+					<h3 data-id="code-title" style="color: #3ad676;">剪枝压缩前</h3>
+					<img src="./image/jzq.jpg" style="margin-top: -22px;zoom: 0.8;" alt="up">
+					
+				</section>
+				<section>
+				<section data-auto-animate>
+					<h3 data-id="code-title" style="color: #1a2bbd;">剪枝压缩后</h3>
+					<img src="./image/jzh.jpg" style="margin-top: -22px;zoom: 0.8;" alt="up">
+				</section>
+
+				<section>
+					<h3>JavaScript脚本代码</h3>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						function maxOne(date1,date2){
+							if (date1==0) return date2;
+							 if (date1>date2) return date1;
+							 return date2;
+						 }
+						 
+						 function minOne(date1,date2){
+						 if (date1==0) return date2;
+							 if (date1>date2) return date2;
+							 return date1;
+						 }
+						 
+						 function convertString(str){
+							 let pat = new RegExp("[A-Z]?K(\\d+)(\\+(\\d+))?","gi");
+							 let res1=pat.exec(str);
+							 let res2=pat.exec(str);
+							 
+							 if (res1==null || res2==null){
+								 return 1;
+							 }
+							 let num1=0;
+							 let num2=0;
+							 
+							 if (res1[3]==undefined){
+							   num1 = parseFloat(res1[1])*1000;  
+							 }
+							 else{
+								 num1 = parseFloat(res1[1])*1000+parseFloat(res1[3]);
+							 }
+							 
+							 if (res2[3]==undefined){
+							   num2 = parseFloat(res2[1])*1000;  
+							 }
+							 else{
+								 num2 = parseFloat(res2[1])*1000+parseFloat(res2[3]);
+							 }
+							 
+							 
+							 return num2 - num1;
+						 }
+						 
+						 
+						 function ConvertTable(sheetName,programName,prefixIndex){
+							 // create or return a sheetName sheet
+							 let startIndex = 2;
+							 let endIndex = Cells.Item(1,1).End(xlDown).Row;
+							 
+							 let currentST=ActiveSheet;
+							 try{
+								 var sheet = Sheets(sheetName);
+								 sheet.Cells.Clear();
+							 }
+							 catch{
+								 // Sheets is now collection object of sheets
+								 Sheets.Add(undefined,Sheets.Item(Sheets.Count),1,undefined);
+								 var sheet = ActiveSheet;
+								 sheet.Name = sheetName;
+								 currentST.Activate();
+							 }
+						 
+							 let destination = sheet.Cells;
+						 
+							 let firstRow=startIndex;
+							 let lastRow=endIndex;
+						 
+							 destination.Columns.Item("G:H").NumberFormatLocal = "@";
+						 
+							 var node_B=new Set();
+							 var node_C=new Set();
+							 var node_D=new Set();
+							 var node_E=new Set();
+						 
+							 let indexB;
+							 let indexC;
+							 let indexD;
+							 let indexE;
+						 
+							 var sum_B=0;
+							 var sum_C=0;
+							 var sum_D=0;
+							 var sum_E=0;
+							 var sum_F=0;
+						 
+							 var destSave_B=0;
+							 var destSave_C=0;
+							 var destSave_D=0;
+							 var destSave_E=0;
+						 
+							 let content;
+							 let destRow=2;
+							 let flag;
+						 
+						 
+						 // initiate the first B level
+							 content = Range(`B${firstRow}`).Text;
+							 node_B.add(content);
+							 indexB = `${prefixIndex}.${node_B.size}`;
+							 destination.Range(`A${destRow}`).Value2=indexB;
+							 destination.Range(`B${destRow}`).Value2=content;
+							 destSave_B=destRow;
+							 destRow++;
+						 
+						 // initiate the first C level
+							 content = Range(`C${firstRow}`).Text;
+							 node_C.add(content);
+							 indexC = `${indexB}.${node_C.size}`;
+							 destination.Range(`A${destRow}`).Value2=indexC;
+							 destination.Range(`B${destRow}`).Value2=content;
+							 destSave_C=destRow;
+							 destRow++;
+						 
+						 // initiate the first D level
+							 content = Range(`D${firstRow}`).Text;
+							 node_D.add(content);
+							 indexD = `${indexC}.${node_D.size}`;
+							 destination.Range(`A${destRow}`).Value2=indexD;
+							 destination.Range(`B${destRow}`).Value2=content;
+							 destSave_D=destRow;
+							 destRow++;
+						 
+						 // initiate the first E level
+							 content = Range(`E${firstRow}`).Text;
+							 node_E.add(content);
+							 indexE = `${indexD}.${node_E.size}`;
+							 destination.Range(`A${destRow}`).Value2=indexE;
+							 destination.Range(`B${destRow}`).Value2=content;
+							 destSave_E=destRow;
+						 
+						 // main loop
+							 while (firstRow<=lastRow){
+								 flag=true;
+								 
+								 // B level
+								 content = Range(`B${firstRow}`).Text;
+								 if (!node_B.has(content)){
+									 destRow++;
+									 // if content is new entry,add it to set
+									 node_B.add(content);
+									 indexB = `${prefixIndex}.${node_B.size}`;
+									 destination.Range(`A${destRow}`).Value2=indexB;
+									 destination.Range(`B${destRow}`).Value2=content;
+									 
+									 if (flag){
+										 destination.Range(`E${destSave_E}`).Value2=sum_F;
+										 sum_E+=sum_F;
+										 
+										 destination.Range(`E${destSave_D}`).Value2=sum_E;
+										 sum_D+=sum_E;
+										 
+										 destination.Range(`E${destSave_C}`).Value2=sum_D;
+										 sum_C+=sum_D;
+										 
+										 destination.Range(`E${destSave_B}`).Value2=sum_C;
+										 sum_B+=sum_C;
+										 sum_C=sum_D=sum_E=sum_F=0;
+										 node_C.clear();
+										 node_D.clear();
+										 node_E.clear();
+										 flag=false;
+									 }
+									 destSave_B=destRow;
+									 destRow++;
+								 }
+								 // C level
+								 content = Range(`C${firstRow}`).Text;
+								 if (!node_C.has(content)){
+									 destRow++;
+									 // if content is new entry,add it to set
+									 node_C.add(content);
+									 indexC = `${indexB}.${node_C.size}`;
+									 destination.Range(`A${destRow}`).Value2=indexC;
+									 destination.Range(`B${destRow}`).Value2=content;
+						 
+									 if (flag){
+										 destination.Range(`E${destSave_E}`).Value2=sum_F;
+										 sum_E+=sum_F;
+										 
+										 destination.Range(`E${destSave_D}`).Value2=sum_E;
+										 sum_D+=sum_E;
+										 
+										 destination.Range(`E${destSave_C}`).Value2=sum_D;
+										 sum_C+=sum_D;
+										 
+										 
+										 sum_D=sum_E=sum_F=0;
+						 
+										 node_D.clear();
+										 node_E.clear();
+										 flag=false;
+									 }
+									 destSave_C=destRow;
+									 destRow++;
+								 }
+								 // D level
+								 content = Range(`D${firstRow}`).Text;
+								 if (!node_D.has(content)){
+									 destRow++;
+									 // if content is new entry,add it to set
+									 node_D.add(content);
+									 indexD = `${indexC}.${node_D.size}`;
+									 destination.Range(`A${destRow}`).Value2=indexD;
+									 destination.Range(`B${destRow}`).Value2=content;
+						 
+									 if (flag){
+										 destination.Range(`E${destSave_E}`).Value2=sum_F;
+										 sum_E+=sum_F;
+										 
+										 destination.Range(`E${destSave_D}`).Value2=sum_E;
+										 sum_D+=sum_E;
+										 sum_E=sum_F=0;
+						 
+										 node_E.clear();
+										 flag=false;
+									 }
+									 destSave_D=destRow;
+									 destRow++;
+								 }
+								 // E level
+								 content = Range(`E${firstRow}`).Text;
+								 if (!node_E.has(content)){
+									 destRow++;
+									 // if content is new entry,add it to set
+									 node_E.add(content);
+									 indexE = `${indexD}.${node_E.size}`;
+									 destination.Range(`A${destRow}`).Value2=indexE;
+									 destination.Range(`B${destRow}`).Value2=content;
+									 // extra code
+						 
+									 if (flag){
+										 destination.Range(`E${destSave_E}`).Value2=sum_F;
+										 sum_E+=sum_F;
+										 sum_F=0;
+										 flag=false;
+									 }
+									 destSave_E=destRow;
+								 }
+								 // last level
+								 sum_F+=Range(`K${firstRow}`).Value2;
+								 firstRow++;
+							 }
+							 destination.Range(`E${destSave_E}`).Value2=sum_F;
+							 sum_E+=sum_F;         
+							 destination.Range(`E${destSave_D}`).Value2=sum_E;
+							 sum_D+=sum_E;         
+							 destination.Range(`E${destSave_C}`).Value2=sum_D;
+							 sum_C+=sum_D;         
+							 destination.Range(`E${destSave_B}`).Value2=sum_C;
+							 sum_B+=sum_C;
+							 
+							 destination.Range('A1').Value2=prefixIndex;
+							 destination.Range('B1').Value2=programName;
+							 destination.Range('E1').Value2=sum_B;
+							 console.log("Completed!");
+						 }
+						 
+						 function createNewTable(){
+							 ConvertTable('桥梁导入表','桥梁工程','4');
+						 }
+					</code></pre>
+
+				</section>
+
+				<section>
+					<h3>数据高级筛选📑</h3>
+					<p>在这个例子中，通过JavaScript脚本代码以一种复杂的规则重新组合并筛选出统计表</p>
+					<div class="r-stack">
+						<img class="fragment fade-out" data-fragment-index="0" src="./image/lvyue.jpg" style="margin-top: -22px;zoom: 0.5;" alt="up">
+						<img class="fragment current-visible" data-fragment-index="0" src="./image/lvyue2.jpg" style="margin-top: -42px;zoom: 0.5;">
+					</div>
+				</section>
+				</section>
+
+
+				<!-- 变更相关 -->
+				<section>
+					<section style="text-align: left;">
+						<h4>📝日常工作内容（变更费用计算和上报）</h4>
+						<hr style="transition:width 0.5s linear">
+						<p>
+							<i class="fa fa-check-square-o" style="font-size:36px;color:#90A955;"></i>上报变更申请单
+						</p>
+						<p>
+							<i class="fa fa-check-square-o" style="font-size:36px;color:#90A955;"></i>根据设计下发图纸计算混凝土、钢筋等材料变更数量
+						</p>
+						<p><i class="fa fa-check-square-o" style="font-size:36px;color:#90A955;"></i>编制费用变更计算表并上报变更报告<a href="https://dataxujing.github.io/Fiery-and-RweiXin/"
+						target="_blank"></a></p>
+						<hr>
+						<a href="#/5/1" class="navigate-down">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h5>在计算变更费用时，计算材料数量的变化往往是难点</h5>
+						<p>对此，我利用软件<span style="color:#c02217;font-style: bold;">Mathmatica</span>进行数学编程</p>
+						<p style="font-size: 1.8rem;color:#1736c0">用mathematica计算变截面箱梁的体积积分</p>
+						<div class="r-stack">
+						<img class="r-frame fragment fade-up" data-src="./image/mma1.jpg">
+						<img class="r-frame fragment fade-down" data-src="./image/mma2.jpg">
+						</div>
+					</section>
+					<section>
+						<h5>钢筋量变化往往计算起来比较麻烦</h5>
+						<p>在我遇到的一份变更中需要计算花瓶墩曲面上主筋和分布钢筋相交点，并以此交点截断分布钢筋</p>
+						<div class="r-stack">
+						<img class="r-frame fragment fade-in" data-fragment-index="0" data-src="./image/mma4.jpg" style="margin-top: -10px;zoom: 65%;">
+						<p class="r-frame fragment current-visible" data-fragment-index="0" style="font-size: 2rem;color:#c02217;">用mathematica可以轻松推导出曲面上的钢筋交点，并计算截断后的长度</p>
+						<img class="r-frame fragment fade-up" data-src="./image/mma3.jpg" style="margin-top: -10px;">
+						</div>
+					</section>
+				</section>
+
+
+				<section>
+					<section>
+						<h3>扩展Excel功能（fuzzy match)</h3>
+						<p>
+							在处理数据的工程中，经常会遇到需要将从下游收集来的数据合并到标准统计表格中
+							但是由于往往不能提供标准名称，我们需要人工一个个核对输入表单中去。此时我想到了是否可以
+							将大数据处理中的模糊匹配算法移植到 Excel 中，用人工智能算法来替代人工识别。
+						</p>
+						<p>
+							为此我编写了一个开源程序框架，在这个框架下我整合了基于深度学习算法的中文分词库JIEBA和基于Levenshtein距离RapidFuzzy算法
+							并将其以原生表格函数的方式移植入 Excel 中。
+						</p>
+					</section>
+					<section>
+						<h3>ExcelAddin项目</h3>
+						<img class="r-frame fragment fade-in" data-fragment-index="0" data-src="./image/code1.jpg" style="margin-top: -10px;">
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>
+							基于WebGL的3D桥梁结构展示方案
+						</h3>
+						<p>
+							<ol>
+								<li>用fusion360构建特征桥梁结构物的参数化模型</li>
+								<li>用WebGL对模型进行端渲染、并处理展览和交互</li>
+								<li>将网页端展览服务部署到服务器上</li>
+							</ol>
+						</p>
+					</section>
+
+					<section>
+						<p class="r-text-fit">澥浦互通主线拼宽50m梁边跨</p>
+						<img data-src="./image/fusion360.jpg">
+					</section>
+					<section style="text-align: left;">
+						<h4>鼠标控制旋转</h4>
+						<canvas id="webgl" width="1080" height="900">
+							Please use a browser that supports "canvas"      
+						  </canvas>
+					</section>
+				</section>
+
+				<section>
+					<p class="r-text-fit">感谢各位领导观看😄😄</p>
+				</section>
+			</div>
+		</div>
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/search/search.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script>
+		<script src="./lib/webgl-utils.js"></script>
+		<script src="./lib/webgl-debug.js"></script>
+		<script src="./lib/cuon-utils.js"></script>
+		<script src="./lib/cuon-matrix.js"></script>
+		<script src="./OBJViewer.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ],
+				keyboard: {
+    				13: mainss
+  				}
+			});
+		</script>
+	</body>
+</html>

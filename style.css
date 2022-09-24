@@ -1,0 +1,11 @@
+.photoS {
+  box-shadow: 1px 1px 1px rgb(175, 142, 142);
+  transition: all 0.5s;
+  transition-timing-function: ease-out;
+}
+
+
+img[alt="up"]:hover {
+  box-shadow: 0 1px 1px 0 rgba(rgb(30, 207, 110), rgb(154, 196, 40), rgb(136, 136, 206), 0.3);
+  transform: translate(0,-300px);
+}
