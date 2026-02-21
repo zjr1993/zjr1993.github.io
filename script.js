@@ -1,43 +1,351 @@
-(function() {
-  $('.skills-prog li').find('.skills-bar').each(function(i) {
-    $(this).find('.bar').delay(i * 150).animate({
-      width: $(this).parents().attr('data-percent') + '%'
-    }, 1000, 'linear', function() {
-      return $(this).css({
-        'transition-duration': '.5s'
-      });
-    });
+// // 获取 DOM 元素
+// const btnRock = document.getElementById('btn-rock');
+// const btnPaper = document.getElementById('btn-paper');
+// const btnScissors = document.getElementById('btn-scissors');
+// const btnReset = document.getElementById('btn-reset');
+
+// const userHand = document.getElementById('user-hand');
+// const computerHand = document.getElementById('computer-hand');
+
+// const messageDiv = document.getElementById('message');
+// const resultText = document.getElementById('result-text');
+
+// // 定义游戏选项
+// const choices = ['rock', 'paper', 'scissors'];
+
+// // 主游戏逻辑
+// function playGame(userChoice) {
+//   // 1. 游戏开始，先将手势复位成“石头”（移除剪刀和布的类名），隐藏上一局结果
+//   userHand.classList.remove('is-paper', 'is-scissors');
+//   computerHand.classList.remove('is-paper', 'is-scissors');
+//   messageDiv.style.visibility = 'hidden';
+
+//   // 2. 加上摇晃动画的类名，模拟猜拳动作
+//   userHand.classList.add('shaking');
+//   computerHand.classList.add('shaking');
+
+//   // 3. 设定 1.5 秒后出拳（利用 setTimeout 延迟执行）
+//   setTimeout(() => {
+//     // 停止摇晃
+//     userHand.classList.remove('shaking');
+//     computerHand.classList.remove('shaking');
+
+//     // 电脑随机生成出拳：0, 1, 2 对应 石头，布，剪刀
+//     const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+
+//     // 4. 根据双方的选择，给手部 DOM 添加对应的形状类名
+//     if (userChoice !== 'rock') userHand.classList.add(`is-${userChoice}`);
+//     if (computerChoice !== 'rock') computerHand.classList.add(`is-${computerChoice}`);
+
+//     // 5. 判定胜负
+//     if (userChoice === computerChoice) {
+//       resultText.innerText = "You Tied! (平局)";
+//     } else if (
+//       (userChoice === 'rock' && computerChoice === 'scissors') ||
+//       (userChoice === 'paper' && computerChoice === 'rock') ||
+//       (userChoice === 'scissors' && computerChoice === 'paper')
+//     ) {
+//       resultText.innerText = "You Win! (你赢了)";
+//     } else {
+//       resultText.innerText = "Computer Wins! (电脑赢了)";
+//     }
+
+//     // 显示结果文字
+//     messageDiv.style.visibility = 'visible';
+//   }, 500); // 1500毫秒 = 1.5秒
+// }
+
+// // 给三个按钮绑定点击事件
+// btnRock.addEventListener('click', () => playGame('rock'));
+// btnPaper.addEventListener('click', () => playGame('paper'));
+// btnScissors.addEventListener('click', () => playGame('scissors'));
+
+// // 重新开始按钮逻辑
+// btnReset.addEventListener('click', () => {
+//   userHand.classList.remove('is-paper', 'is-scissors');
+//   computerHand.classList.remove('is-paper', 'is-scissors');
+//   messageDiv.style.visibility = 'hidden';
+// });
+
+
+// 获取 DOM 元素
+// const btnRock = document.getElementById('btn-rock');
+// const btnPaper = document.getElementById('btn-paper');
+// const btnScissors = document.getElementById('btn-scissors');
+// const btnReset = document.getElementById('btn-reset'); // 单局重置按钮
+
+// const userHand = document.getElementById('user-hand');
+// const computerHand = document.getElementById('computer-hand');
+
+// const messageDiv = document.getElementById('message');
+// const resultText = document.getElementById('result-text');
+
+// // 获取新增的 DOM 元素
+// const userScoreEl = document.getElementById('user-score');
+// const compScoreEl = document.getElementById('comp-score');
+// const gameOverScreen = document.getElementById('game-over-screen');
+// const finalResultText = document.getElementById('final-result-text');
+// const btnRestartGame = document.getElementById('btn-restart-game');
+
+// // === 新增：游戏全局状态变量 ===
+// const choices = ['rock', 'paper', 'scissors'];
+// const WINNING_SCORE = 10; // 设定胜利目标分数
+// let userScore = 0;
+// let computerScore = 0;
+// let isAnimating = false; // 动画锁：防止在动画期间重复点击
+
+// // 主游戏逻辑
+// function playGame(userChoice) {
+//   // 如果正在播放动画，或者游戏已经结束，直接无视用户的点击
+//   if (isAnimating) return; 
+
+//   // 锁定状态，开始动画
+//   isAnimating = true;
+
+//   // 1. 复位手势，隐藏单局结果
+//   userHand.classList.remove('is-paper', 'is-scissors');
+//   computerHand.classList.remove('is-paper', 'is-scissors');
+//   messageDiv.style.visibility = 'hidden';
+
+//   // 2. 加上摇晃动画
+//   userHand.classList.add('shaking');
+//   computerHand.classList.add('shaking');
+
+//   // 3. 延迟 1.5 秒后出拳
+//   setTimeout(() => {
+//     // 停止摇晃
+//     userHand.classList.remove('shaking');
+//     computerHand.classList.remove('shaking');
+
+//     // 电脑随机出拳
+//     const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+
+//     // 4. 添加手势变形类名
+//     if (userChoice !== 'rock') userHand.classList.add(`is-${userChoice}`);
+//     if (computerChoice !== 'rock') computerHand.classList.add(`is-${computerChoice}`);
+
+//     // 5. 判定单局胜负并计分
+//     if (userChoice === computerChoice) {
+//       resultText.innerText = "You Tied! (平局)";
+//     } else if (
+//       (userChoice === 'rock' && computerChoice === 'scissors') ||
+//       (userChoice === 'paper' && computerChoice === 'rock') ||
+//       (userChoice === 'scissors' && computerChoice === 'paper')
+//     ) {
+//       resultText.innerText = "You Win! (你赢了)";
+//       userScore++; // 玩家加一分
+//     } else {
+//       resultText.innerText = "Computer Wins! (电脑赢了)";
+//       computerScore++; // 电脑加一分
+//     }
+
+//     // 更新页面上的分数显示
+//     userScoreEl.innerText = userScore;
+//     compScoreEl.innerText = computerScore;
+
+//     // 显示单局结果
+//     messageDiv.style.visibility = 'visible';
+    
+//     // 解除动画锁
+//     isAnimating = false;
+
+//     // 6. === 新增：检查是否有人达到 10 分 ===
+//     checkGameOver();
+
+//   }, 500); 
+// }
+
+// // 检查游戏是否结束的函数
+// function checkGameOver() {
+//   if (userScore >= WINNING_SCORE || computerScore >= WINNING_SCORE) {
+//     // 决定结算画面的文案和颜色
+//     if (userScore >= WINNING_SCORE) {
+//       finalResultText.innerText = "🏆 YOU WON THE GAME! 🏆";
+//       finalResultText.style.color = "green";
+//     } else {
+//       finalResultText.innerText = "💀 COMPUTER WON! 💀";
+//       finalResultText.style.color = "red";
+//     }
+//     // 显示结算遮罩层
+//     gameOverScreen.style.display = 'flex';
+//   }
+// }
+
+// // 绑定出拳按钮事件
+// btnRock.addEventListener('click', () => playGame('rock'));
+// btnPaper.addEventListener('click', () => playGame('paper'));
+// btnScissors.addEventListener('click', () => playGame('scissors'));
+
+// // 下一回合按钮（清空当前手势）
+// btnReset.addEventListener('click', () => {
+//   if (isAnimating) return;
+//   userHand.classList.remove('is-paper', 'is-scissors');
+//   computerHand.classList.remove('is-paper', 'is-scissors');
+//   messageDiv.style.visibility = 'hidden';
+// });
+
+// // 全局重置按钮（再来一局）
+// btnRestartGame.addEventListener('click', () => {
+//   // 分数清零
+//   userScore = 0;
+//   computerScore = 0;
+//   userScoreEl.innerText = '0';
+//   compScoreEl.innerText = '0';
+  
+//   // 隐藏结算画面和单局结果
+//   gameOverScreen.style.display = 'none';
+//   messageDiv.style.visibility = 'hidden';
+
+//   // 手势复位
+//   userHand.classList.remove('is-paper', 'is-scissors');
+//   computerHand.classList.remove('is-paper', 'is-scissors');
+// });
+
+
+// 获取 DOM 元素
+const btnRock = document.getElementById('btn-rock');
+const btnPaper = document.getElementById('btn-paper');
+const btnScissors = document.getElementById('btn-scissors');
+const btnReset = document.getElementById('btn-reset'); 
+
+const userHand = document.getElementById('user-hand');
+const computerHand = document.getElementById('computer-hand');
+
+const messageDiv = document.getElementById('message');
+const resultText = document.getElementById('result-text');
+
+const userScoreEl = document.getElementById('user-score');
+const compScoreEl = document.getElementById('comp-score');
+const gameOverScreen = document.getElementById('game-over-screen');
+const finalResultText = document.getElementById('final-result-text');
+const btnRestartGame = document.getElementById('btn-restart-game');
+
+// === 新增：获取难度按钮组 ===
+const diffButtons = document.querySelectorAll('.diff-btn');
+
+// 全局状态变量
+const choices = ['rock', 'paper', 'scissors'];
+let WINNING_SCORE = 10; // 注意：这里从 const 变成了 let，以便动态修改
+let userScore = 0;
+let computerScore = 0;
+let isAnimating = false;
+let COMPUTERAI = new strategy();
+
+const convert = {
+  'rock': 'R',
+  'paper': 'P',
+  'scissors': 'S'
+}
+
+const inverse = {
+  'R': 'rock',
+  'P': 'paper',
+  'S': 'scissors'
+}
+
+
+// === 提取通用的重置游戏函数 ===
+function resetGame() {
+  userScore = 0;
+  computerScore = 0;
+  userScoreEl.innerText = '0';
+  compScoreEl.innerText = '0';
+  
+  gameOverScreen.style.display = 'none';
+  messageDiv.style.visibility = 'hidden';
+
+  userHand.classList.remove('is-paper', 'is-scissors', 'shaking');
+  computerHand.classList.remove('is-paper', 'is-scissors', 'shaking');
+  COMPUTERAI = new strategy();
+}
+
+// === 新增：绑定难度选择逻辑 ===
+diffButtons.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    if (isAnimating) return; // 动画期间不让切难度
+
+    // 1. 移除所有按钮的高亮类名，然后给当前点击的加高亮
+    diffButtons.forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+
+    // 2. 从被点击按钮的 data-score 属性中读取分数并转换为数字
+    WINNING_SCORE = parseInt(e.target.getAttribute('data-score'));
+
+    // 3. 切换难度后自动重置当前游戏比分
+    resetGame();
   });
+});
 
-  $('.skills-soft li').find('svg').each(function(i) {
-    var c, cbar, circle, percent, r;
-    circle = $(this).children('.cbar');
-    r = circle.attr('r');
-    c = Math.PI * (r * 2);
-    percent = $(this).parent().data('percent');
-    cbar = ((100 - percent) / 100) * c;
-    circle.css({
-      'stroke-dashoffset': c,
-      'stroke-dasharray': c
-    });
-    circle.delay(i * 150).animate({
-      strokeDashoffset: cbar
-    }, 1000, 'linear', function() {
-      return circle.css({
-        'transition-duration': '.3s'
-      });
-    });
-    $(this).siblings('small').prop('Counter', 0).delay(i * 150).animate({
-      Counter: percent
-    }, {
-      duration: 1000,
-      step: function(now) {
-        return $(this).text(Math.ceil(now) + '%');
-      }
-    });
-  });
+// 主游戏逻辑
+function playGame(userChoice) {
+  if (isAnimating) return; 
+  isAnimating = true;
 
-}).call(this);
+  userHand.classList.remove('is-paper', 'is-scissors');
+  computerHand.classList.remove('is-paper', 'is-scissors');
+  messageDiv.style.visibility = 'hidden';
 
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiPGFub255bW91cz4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFBQSxDQUFBLENBQUUsaUJBQUYsQ0FBb0IsQ0FBQyxJQUFyQixDQUEwQixhQUExQixDQUF3QyxDQUFDLElBQXpDLENBQThDLFFBQUEsQ0FBQyxDQUFELENBQUE7SUFDNUMsQ0FBQSxDQUFFLElBQUYsQ0FBTyxDQUFDLElBQVIsQ0FBYSxNQUFiLENBQW9CLENBQUMsS0FBckIsQ0FBMkIsQ0FBQSxHQUFFLEdBQTdCLENBQWlDLENBQUMsT0FBbEMsQ0FBMEM7TUFDeEMsS0FBQSxFQUFPLENBQUEsQ0FBRSxJQUFGLENBQU8sQ0FBQyxPQUFSLENBQUEsQ0FBaUIsQ0FBQyxJQUFsQixDQUF1QixjQUF2QixDQUFBLEdBQXlDO0lBRFIsQ0FBMUMsRUFFRyxJQUZILEVBRVMsUUFGVCxFQUVtQixRQUFBLENBQUEsQ0FBQTthQUNqQixDQUFBLENBQUUsSUFBRixDQUFPLENBQUMsR0FBUixDQUFZO1FBQUEscUJBQUEsRUFBdUI7TUFBdkIsQ0FBWjtJQURpQixDQUZuQjtFQUQ0QyxDQUE5Qzs7RUFNQSxDQUFBLENBQUUsaUJBQUYsQ0FBb0IsQ0FBQyxJQUFyQixDQUEwQixLQUExQixDQUFnQyxDQUFDLElBQWpDLENBQXNDLFFBQUEsQ0FBQyxDQUFELENBQUE7QUFDdEMsUUFBQSxDQUFBLEVBQUEsSUFBQSxFQUFBLE1BQUEsRUFBQSxPQUFBLEVBQUE7SUFBRSxNQUFBLEdBQVMsQ0FBQSxDQUFFLElBQUYsQ0FBTyxDQUFDLFFBQVIsQ0FBaUIsT0FBakI7SUFDVCxDQUFBLEdBQUksTUFBTSxDQUFDLElBQVAsQ0FBWSxHQUFaO0lBQ0osQ0FBQSxHQUFJLElBQUksQ0FBQyxFQUFMLEdBQVUsQ0FBQyxDQUFBLEdBQUksQ0FBTDtJQUNkLE9BQUEsR0FBVSxDQUFBLENBQUUsSUFBRixDQUFPLENBQUMsTUFBUixDQUFBLENBQWdCLENBQUMsSUFBakIsQ0FBc0IsU0FBdEI7SUFDVixJQUFBLEdBQU8sQ0FBQyxDQUFDLEdBQUEsR0FBSSxPQUFMLENBQUEsR0FBYyxHQUFmLENBQUEsR0FBc0I7SUFDN0IsTUFBTSxDQUFDLEdBQVAsQ0FBVztNQUFBLG1CQUFBLEVBQXFCLENBQXJCO01BQXdCLGtCQUFBLEVBQW9CO0lBQTVDLENBQVg7SUFDQSxNQUFNLENBQUMsS0FBUCxDQUFhLENBQUEsR0FBRSxHQUFmLENBQW1CLENBQUMsT0FBcEIsQ0FBNEI7TUFDMUIsZ0JBQUEsRUFBa0I7SUFEUSxDQUE1QixFQUVHLElBRkgsRUFFUyxRQUZULEVBRW1CLFFBQUEsQ0FBQSxDQUFBO2FBQ2pCLE1BQU0sQ0FBQyxHQUFQLENBQVc7UUFBQSxxQkFBQSxFQUF1QjtNQUF2QixDQUFYO0lBRGlCLENBRm5CO0lBSUEsQ0FBQSxDQUFFLElBQUYsQ0FBTyxDQUFDLFFBQVIsQ0FBaUIsT0FBakIsQ0FBeUIsQ0FBQyxJQUExQixDQUErQixTQUEvQixFQUEwQyxDQUExQyxDQUE0QyxDQUFDLEtBQTdDLENBQW1ELENBQUEsR0FBRSxHQUFyRCxDQUF5RCxDQUFDLE9BQTFELENBQWtFO01BQ2hFLE9BQUEsRUFBUztJQUR1RCxDQUFsRSxFQUVHO01BQUEsUUFBQSxFQUFVLElBQVY7TUFBZ0IsSUFBQSxFQUFNLFFBQUEsQ0FBQyxHQUFELENBQUE7ZUFDdkIsQ0FBQSxDQUFFLElBQUYsQ0FBTyxDQUFDLElBQVIsQ0FBYSxJQUFJLENBQUMsSUFBTCxDQUFVLEdBQVYsQ0FBQSxHQUFpQixHQUE5QjtNQUR1QjtJQUF0QixDQUZIO0VBWG9DLENBQXRDO0FBTkEiLCJzb3VyY2VzQ29udGVudCI6WyIkKCcuc2tpbGxzLXByb2cgbGknKS5maW5kKCcuc2tpbGxzLWJhcicpLmVhY2ggKGkpIC0+XG4gICQodGhpcykuZmluZCgnLmJhcicpLmRlbGF5KGkqMTUwKS5hbmltYXRlIHtcbiAgICB3aWR0aDogJCh0aGlzKS5wYXJlbnRzKCkuYXR0cignZGF0YS1wZXJjZW50JykgKyAnJSdcbiAgfSwgMTAwMCwgJ2xpbmVhcicsIC0+XG4gICAgJCh0aGlzKS5jc3MgJ3RyYW5zaXRpb24tZHVyYXRpb24nOiAnLjVzJ1xuICByZXR1cm5cbiQoJy5za2lsbHMtc29mdCBsaScpLmZpbmQoJ3N2ZycpLmVhY2ggKGkpIC0+XG4gIGNpcmNsZSA9ICQodGhpcykuY2hpbGRyZW4oJy5jYmFyJylcbiAgciA9IGNpcmNsZS5hdHRyKCdyJylcbiAgYyA9IE1hdGguUEkgKiAociAqIDIpXG4gIHBlcmNlbnQgPSAkKHRoaXMpLnBhcmVudCgpLmRhdGEgJ3BlcmNlbnQnXG4gIGNiYXIgPSAoKDEwMC1wZXJjZW50KS8xMDApICogY1xuICBjaXJjbGUuY3NzICdzdHJva2UtZGFzaG9mZnNldCc6IGMsICdzdHJva2UtZGFzaGFycmF5JzogY1xuICBjaXJjbGUuZGVsYXkoaSoxNTApLmFuaW1hdGUge1xuICAgIHN0cm9rZURhc2hvZmZzZXQ6IGNiYXJcbiAgfSwgMTAwMCwgJ2xpbmVhcicsIC0+XG4gICAgY2lyY2xlLmNzcyAndHJhbnNpdGlvbi1kdXJhdGlvbic6ICcuM3MnXG4gICQodGhpcykuc2libGluZ3MoJ3NtYWxsJykucHJvcCgnQ291bnRlcicsIDApLmRlbGF5KGkqMTUwKS5hbmltYXRlIHtcbiAgICBDb3VudGVyOiBwZXJjZW50XG4gIH0sIGR1cmF0aW9uOiAxMDAwLCBzdGVwOiAobm93KSAtPlxuICAgICQodGhpcykudGV4dCBNYXRoLmNlaWwobm93KSArICclJ1xuICByZXR1cm4iXX0=
-//# sourceURL=coffeescript
+  userHand.classList.add('shaking');
+  computerHand.classList.add('shaking');
+
+  setTimeout(() => {
+    userHand.classList.remove('shaking');
+    computerHand.classList.remove('shaking');
+
+    const computerChoice = inverse[COMPUTERAI.predict(convert[userChoice])];
+
+    if (userChoice !== 'rock') userHand.classList.add(`is-${userChoice}`);
+    if (computerChoice !== 'rock') computerHand.classList.add(`is-${computerChoice}`);
+
+    if (userChoice === computerChoice) {
+      resultText.innerText = "You Tied! (平局)";
+    } else if (
+      (userChoice === 'rock' && computerChoice === 'scissors') ||
+      (userChoice === 'paper' && computerChoice === 'rock') ||
+      (userChoice === 'scissors' && computerChoice === 'paper')
+    ) {
+      resultText.innerText = "You Win! (你赢了)";
+      userScore++; 
+    } else {
+      resultText.innerText = "Computer Wins! (电脑赢了)";
+      computerScore++; 
+    }
+
+    userScoreEl.innerText = userScore;
+    compScoreEl.innerText = computerScore;
+    messageDiv.style.visibility = 'visible';
+    
+    isAnimating = false;
+    checkGameOver();
+
+  }, 500); 
+}
+
+function checkGameOver() {
+  if (userScore >= WINNING_SCORE || computerScore >= WINNING_SCORE) {
+    if (userScore >= WINNING_SCORE) {
+      finalResultText.innerText = "🏆 YOU WON THE GAME! 🏆";
+      finalResultText.style.color = "green";
+    } else {
+      finalResultText.innerText = "💀 COMPUTER WON! 💀";
+      finalResultText.style.color = "red";
+    }
+    gameOverScreen.style.display = 'flex';
+  }
+}
+
+// 绑定出拳事件
+btnRock.addEventListener('click', () => playGame('rock'));
+btnPaper.addEventListener('click', () => playGame('paper'));
+btnScissors.addEventListener('click', () => playGame('scissors'));
+
+// 绑定单局重置
+btnReset.addEventListener('click', () => {
+  if (isAnimating) return;
+  userHand.classList.remove('is-paper', 'is-scissors');
+  computerHand.classList.remove('is-paper', 'is-scissors');
+  messageDiv.style.visibility = 'hidden';
+});
+
+// 绑定重新开始事件（使用新封装的 resetGame 函数）
+btnRestartGame.addEventListener('click', resetGame);
