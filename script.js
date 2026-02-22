@@ -206,7 +206,7 @@
 const btnRock = document.getElementById('btn-rock');
 const btnPaper = document.getElementById('btn-paper');
 const btnScissors = document.getElementById('btn-scissors');
-// const btnReset = document.getElementById('btn-reset'); 
+const btnReset = document.getElementById('btn-reset'); 
 
 const userHand = document.getElementById('user-hand');
 const computerHand = document.getElementById('computer-hand');
@@ -343,12 +343,12 @@ btnPaper.addEventListener('click', () => playGame('paper'));
 btnScissors.addEventListener('click', () => playGame('scissors'));
 // btnReset
 // 绑定单局重置
-//btnReset.addEventListener('click', () => {
-  //if (isAnimating) return;
-  //userHand.classList.remove('is-paper', 'is-scissors');
-  //computerHand.classList.remove('is-paper', 'is-scissors');
-  //messageDiv.style.visibility = 'hidden';
-//});
+btnReset.addEventListener('click', () => {
+  if (isAnimating) return;
+  userHand.classList.remove('is-paper', 'is-scissors');
+  computerHand.classList.remove('is-paper', 'is-scissors');
+  messageDiv.style.visibility = 'hidden';
+});
 
 // 绑定重新开始事件（使用新封装的 resetGame 函数）
 btnRestartGame.addEventListener('click', resetGame);
