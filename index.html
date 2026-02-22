@@ -1,49 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Rock-Paper-Scissors AI</title>
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>RPS Showdown: Beat the Machine!</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div id="game-container">
-        <div>
-            <h1>Brain vs Silicon: <br><span class="highlight">Beat the Machine!</span></h1>
-            
-            <div id="hands">
-                <div class="hand" id="computer-hand">
-                    <div class="fist"></div>
-                    <div class="finger finger-1"></div>
-                    <div class="finger finger-2"></div>
-                    <div class="finger finger-3"></div>
-                    <div class="finger finger-4"></div>
-                    <div class="thumb"></div>
-                    <div class="arm"></div>
-                </div>
-
-                <div id="icons">
-                    <button id="btn-rock">✊</button>
-                    <button id="btn-paper">🖐️</button>
-                    <button id="btn-scissors">✌</button>
-                </div>
-
-                <div class="hand" id="user-hand">
-                    <div class="fist"></div>
-                    <div class="finger finger-1"></div>
-                    <div class="finger finger-2"></div>
-                    <div class="finger finger-3"></div>
-                    <div class="finger finger-4"></div>
-                    <div class="thumb"></div>
-                    <div class="arm"></div>
-                </div>
-            </div>
-        </div>
+  <div id="game-container">
+    <div>
+      <h1>RPS Showdown: <span class="highlight">Beat the Machine!</span></h1>
+      
+      <div id="hands">
+        <div class="hand" id="computer-hand">
+           </div>
+        <div class="hand" id="user-hand">
+           </div>
+      </div>
+      
+      <div id="icons">
+        <button id="btn-rock">✊</button>
+        <button id="btn-paper">🖐️</button>
+        <button id="btn-scissors">✌</button>
+      </div>
+    </div>
 
         <div id="message" style="visibility: hidden;">
             <h2 id="result-text"></h2>
+            <button id="btn-reset">Next Round</button>
         </div>
 
         <div id="scoreboard">
@@ -55,10 +39,10 @@
                 <span>You</span>
                 <span id="user-score">0</span>
             </div>
-        </div>
 
+        </div>
         <div id="difficulty-selector">
-            <h3>Target Score</h3>
+            <h3>Target Score (Difficulty)</h3>
             <div class="diff-buttons">
                 <button class="diff-btn active" data-score="10">10 Pts</button>
                 <button class="diff-btn" data-score="15">15 Pts</button>
@@ -67,7 +51,6 @@
             </div>
         </div>
     </div>
-
     <div id="game-over-screen" style="display: none;">
         <h1 id="final-result-text">Game Over</h1>
         <button id="btn-restart-game">Play Again</button>
@@ -76,4 +59,5 @@
     <script src="./strategy.js"></script>
     <script src="./script.js"></script>
 </body>
+
 </html>
