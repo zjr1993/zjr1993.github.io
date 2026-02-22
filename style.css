@@ -328,7 +328,7 @@ div.arm {
 
   /* 结算画面的标题缩小，防止溢出屏幕 */
   #game-over-screen h1 {
-    font-size: 2.5rem;
+    font-size: 2.0rem;
     text-align: center;
     padding: 0 10px;
   }
