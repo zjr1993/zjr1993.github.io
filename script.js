@@ -1,3 +1,73 @@
+// // 获取 DOM 元素
+// const btnRock = document.getElementById('btn-rock');
+// const btnPaper = document.getElementById('btn-paper');
+// const btnScissors = document.getElementById('btn-scissors');
+// const btnReset = document.getElementById('btn-reset');
+
+// const userHand = document.getElementById('user-hand');
+// const computerHand = document.getElementById('computer-hand');
+
+// const messageDiv = document.getElementById('message');
+// const resultText = document.getElementById('result-text');
+
+// // 定义游戏选项
+// const choices = ['rock', 'paper', 'scissors'];
+
+// // 主游戏逻辑
+// function playGame(userChoice) {
+//   // 1. 游戏开始，先将手势复位成“石头”（移除剪刀和布的类名），隐藏上一局结果
+//   userHand.classList.remove('is-paper', 'is-scissors');
+//   computerHand.classList.remove('is-paper', 'is-scissors');
+//   messageDiv.style.visibility = 'hidden';
+
+//   // 2. 加上摇晃动画的类名，模拟猜拳动作
+//   userHand.classList.add('shaking');
+//   computerHand.classList.add('shaking');
+
+//   // 3. 设定 1.5 秒后出拳（利用 setTimeout 延迟执行）
+//   setTimeout(() => {
+//     // 停止摇晃
+//     userHand.classList.remove('shaking');
+//     computerHand.classList.remove('shaking');
+
+//     // 电脑随机生成出拳：0, 1, 2 对应 石头，布，剪刀
+//     const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+
+//     // 4. 根据双方的选择，给手部 DOM 添加对应的形状类名
+//     if (userChoice !== 'rock') userHand.classList.add(`is-${userChoice}`);
+//     if (computerChoice !== 'rock') computerHand.classList.add(`is-${computerChoice}`);
+
+//     // 5. 判定胜负
+//     if (userChoice === computerChoice) {
+//       resultText.innerText = "You Tied! (平局)";
+//     } else if (
+//       (userChoice === 'rock' && computerChoice === 'scissors') ||
+//       (userChoice === 'paper' && computerChoice === 'rock') ||
+//       (userChoice === 'scissors' && computerChoice === 'paper')
+//     ) {
+//       resultText.innerText = "You Win! (你赢了)";
+//     } else {
+//       resultText.innerText = "Computer Wins! (电脑赢了)";
+//     }
+
+//     // 显示结果文字
+//     messageDiv.style.visibility = 'visible';
+//   }, 500); // 1500毫秒 = 1.5秒
+// }
+
+// // 给三个按钮绑定点击事件
+// btnRock.addEventListener('click', () => playGame('rock'));
+// btnPaper.addEventListener('click', () => playGame('paper'));
+// btnScissors.addEventListener('click', () => playGame('scissors'));
+
+// // 重新开始按钮逻辑
+// btnReset.addEventListener('click', () => {
+//   userHand.classList.remove('is-paper', 'is-scissors');
+//   computerHand.classList.remove('is-paper', 'is-scissors');
+//   messageDiv.style.visibility = 'hidden';
+// });
+
+
 // 获取 DOM 元素
 // const btnRock = document.getElementById('btn-rock');
 // const btnPaper = document.getElementById('btn-paper');
@@ -136,7 +206,7 @@
 const btnRock = document.getElementById('btn-rock');
 const btnPaper = document.getElementById('btn-paper');
 const btnScissors = document.getElementById('btn-scissors');
-const btnReset = document.getElementById('btn-reset'); 
+// const btnReset = document.getElementById('btn-reset'); 
 
 const userHand = document.getElementById('user-hand');
 const computerHand = document.getElementById('computer-hand');
@@ -160,6 +230,7 @@ let userScore = 0;
 let computerScore = 0;
 let isAnimating = false;
 let COMPUTERAI = new strategy();
+let lastUserChoice = undefined;
 
 const convert = {
   'rock': 'R',
@@ -187,6 +258,7 @@ function resetGame() {
   userHand.classList.remove('is-paper', 'is-scissors', 'shaking');
   computerHand.classList.remove('is-paper', 'is-scissors', 'shaking');
   COMPUTERAI = new strategy();
+  lastUserChoice = undefined;
 }
 
 // === 新增：绑定难度选择逻辑 ===
@@ -222,7 +294,8 @@ function playGame(userChoice) {
     userHand.classList.remove('shaking');
     computerHand.classList.remove('shaking');
 
-    const computerChoice = inverse[COMPUTERAI.predict(convert[userChoice])];
+    const computerChoice = inverse[COMPUTERAI.predict(convert[lastUserChoice])];
+    lastUserChoice = userChoice;
 
     if (userChoice !== 'rock') userHand.classList.add(`is-${userChoice}`);
     if (computerChoice !== 'rock') computerHand.classList.add(`is-${computerChoice}`);
@@ -248,7 +321,7 @@ function playGame(userChoice) {
     isAnimating = false;
     checkGameOver();
 
-  }, 500); 
+  }, 300); 
 }
 
 function checkGameOver() {
@@ -268,14 +341,14 @@ function checkGameOver() {
 btnRock.addEventListener('click', () => playGame('rock'));
 btnPaper.addEventListener('click', () => playGame('paper'));
 btnScissors.addEventListener('click', () => playGame('scissors'));
-
+// btnReset
 // 绑定单局重置
-btnReset.addEventListener('click', () => {
-  if (isAnimating) return;
-  userHand.classList.remove('is-paper', 'is-scissors');
-  computerHand.classList.remove('is-paper', 'is-scissors');
-  messageDiv.style.visibility = 'hidden';
-});
+//btnReset.addEventListener('click', () => {
+  //if (isAnimating) return;
+  //userHand.classList.remove('is-paper', 'is-scissors');
+  //computerHand.classList.remove('is-paper', 'is-scissors');
+  //messageDiv.style.visibility = 'hidden';
+//});
 
 // 绑定重新开始事件（使用新封装的 resetGame 函数）
 btnRestartGame.addEventListener('click', resetGame);
